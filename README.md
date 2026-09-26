@@ -108,3 +108,48 @@ wails dev
 
 # Or build the release binary
 wails build -platform windows/amd64 -clean
+```
+
+The output binary is written to `build/bin/winwatcher.exe`.
+
+---
+
+## Tech stack
+
+- **[Wails v2](https://wails.io)** — Go + WebView2 desktop framework
+- **[Go 1.23+](https://go.dev)** — backend
+- **Vanilla HTML / CSS / JavaScript** — frontend, no framework
+- **[gopsutil](https://github.com/shirou/gopsutil)** — process and network info
+- **Direct `NtQuerySystemInformation` syscall** — the fast Windows kernel API Task Manager uses, called from Go with no C compiler
+
+---
+
+## Known limitations
+
+- System processes (`svchost.exe`, `csrss.exe`, etc.) show **"Access denied"** for open files unless winwatcher is run as administrator. This is a Windows security boundary — Task Manager has the same limitation.
+- **Windows 10 / 11 only.**
+- Alpha release — expect rough edges. Report issues on the [Issues](https://github.com/khpalwatan/winwatcher/issues) page.
+
+---
+
+## Related
+
+- **[portswarden](https://github.com/khpalwatan/portswarden)** — Find and free Windows ports. Kill EADDRINUSE in one command.
+
+---
+
+## License
+
+[MIT](LICENSE) © 2026 [WAseem KHan](https://github.com/khpalwatan)
+
+<div align="center">
+
+**Built by [WAseem KHan](https://github.com/khpalwatan)**
+
+⭐ If winwatcher is useful to you, give it a star — it helps a lot.
+
+---
+
+<sub>Crafted with care by <a href="https://github.com/khpalwatan">WAseem KHan</a> · Idea, design, and code — all his.</sub>
+
+</div>
