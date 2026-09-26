@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>winwatcher</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="title">winwatcher</span>
+      <span class="version" id="versionTag">v1.0.0</span>
+    </div>
+
+    <input id="filter" type="text" placeholder="Filter by name or PID" autocomplete="off" spellcheck="false" />
+
+    <div class="meta"><span id="procCount">0</span> processes</div>
+
+    <div class="credits">
+      <span class="authorName">Developed by <strong>WAseem KHan</strong></span>
+      <button id="githubBtn" class="iconBtn" type="button" title="Follow on GitHub">
+        <span class="ghIcon">★</span>
+        <span class="btnText">Follow on GitHub</span>
+      </button>
+      <button id="themeBtn" class="iconBtn" type="button" title="Cycle theme: Dark / AMOLED / White">
+        <span class="themeIcon" id="themeIcon">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="layout">
+    <section id="treePane">
+      <div class="paneHeader">
+        <span class="col col-name">Process</span>
+        <span class="col col-tag">Tag</span>
+        <span class="col col-pid">PID</span>
+        <span class="col col-cpu">CPU</span>
+        <span class="col col-mem">Memory</span>
+      </div>
+      <div id="tree" tabindex="0"></div>
+    </section>
+
+    <section id="detailsPane">
+      <div id="detailsEmpty" class="emptyState">
+        <div class="emptyTitle">Select a process</div>
+        <div class="emptyHint">Click a row on the left to see its files and connections.</div>
+      </div>
+
+      <div id="details" hidden>
+        <div class="detailHead">
+          <div class="detailHeadLeft">
+            <div id="detailName" class="detailName">-</div>
+            <div id="detailPid" class="detailPid">PID -</div>
+          </div>
+          <button id="killBtn" class="killBtn" type="button" title="Kill this process">
+            Kill Process
+          </button>
+        </div>
+
+        <div class="statsRow">
+          <div class="stat"><div class="statLabel">CPU</div><div id="statCpu" class="statValue">-</div></div>
+          <div class="stat"><div class="statLabel">Memory</div><div id="statMem" class="statValue">-</div></div>
+          <div class="stat"><div class="statLabel">Threads</div><div id="statThreads" class="statValue">-</div></div>
+        </div>
+
+        <div class="cmdBlock">
+          <div class="blockLabel">Command line</div>
+          <div id="detailCmd" class="cmdText">-</div>
+        </div>
+
+        <div class="block">
+          <div class="blockLabel">Network connections <span id="netCount" class="count">0</span></div>
+          <div id="netList" class="list"></div>
+        </div>
+
+        <div class="block">
+          <div class="blockLabel">Open files <span id="fileCount" class="count">0</span></div>
+          <div id="fileList" class="list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="graphBar">
+    <div class="graphLabel">CPU</div>
+    <canvas id="cpuGraph" class="graphCanvas"></canvas>
+    <div class="graphValue" id="cpuValue">0.0%</div>
+
+    <div class="graphLabel">MEM</div>
+    <canvas id="memGraph" class="graphCanvas"></canvas>
+    <div class="graphValue" id="memValue">0 MB</div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

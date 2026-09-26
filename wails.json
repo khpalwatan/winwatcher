@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "winwatcher",
+  "outputfilename": "winwatcher",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "khpalwatan",
+    "email": "331333774+khpalwatan@users.noreply.github.com"
+  }
+}

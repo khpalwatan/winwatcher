@@ -1,0 +1,41 @@
+# Build output
+build/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Wails scaffold leftovers we don't use
+build/README.md
+build/appicon.png
+build/darwin/
+build/windows/installer/
+frontend/package.json.md5
+frontend/src/app.css
+frontend/src/assets/
+
+# Wails generated bindings
+frontend/wailsjs/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Go
+*.test
+*.out
+vendor/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config
+window.json
+*.log
